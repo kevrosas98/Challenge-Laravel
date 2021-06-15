@@ -51,4 +51,32 @@
         </div>
 </div>
 
+<h2 class="border-bottom mt-5">Pizzas que te pueden gustar</h2>
+
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4 g-4 mt-1">
+
+@if(shuffle($detallevm))
+
+@foreach ($detallevm as $key => $pizza)
+
+<div class="col">
+    <div class="card mb-3">
+    <img src="{{ $detallevm[$key]['imagenp'] }}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">{{ $detallevm[$key]['nombre'] }}</h5>
+        <p class="card-text">{{ $detallevm[$key]['description'] }}</p>
+    </div>
+    <div class="d-grid gap-2">
+        <a href="{{ $detallevm[$key]['url'] }}" class="btn btn-primary">Ver Detalle</a>
+    </div>
+    </div>
+</div>
+
+@endforeach
+
+@endif
+
+</div>
+
 @include('templates.footer')

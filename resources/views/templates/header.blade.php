@@ -29,10 +29,15 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav"> 
           <li class="nav-item"><a href="/" class="nav-link @if(request()->is('/')) active @endif" aria-current="page">Inicio</a></li>
           <li class="nav-item"><a href="{{ route('tiendas') }}" class="nav-link" aria-current="page">Tiendas</a></li>
-          <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Mi Cuenta</a></li>
+          @if(session('usuario')['nombre'] != "")
+          <li class="nav-item"><a href="/clientes/pedidos" class="nav-link" aria-current="page">Mis Pedidos</a></li>
+          <li class="nav-item"><a href="/login/salir" class="nav-link" aria-current="page"><strong>Bienvenido {{ session('usuario')['nombre'] }} | Salir</strong></a></li>
+          @else
+          <li class="nav-item"><a href="{{ route('login') }}" class="nav-link" aria-current="page">Mi Cuenta</a></li>
+          @endif
           </ul>
         </div>
         

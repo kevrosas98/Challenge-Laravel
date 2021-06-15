@@ -19,6 +19,15 @@ Route::get('/', [pizzeriaController::class, 'inicio']);
 Route::get('/producto/{producto}', [pizzeriaController::class, 'detalle'])->name('producto');
 Route::get('/tiendas', [pizzeriaController::class, 'tiendas'])->name('tiendas');
 
+Route::get('/login', [pizzeriaController::class, 'login'])->name('login');
+Route::post('/login/validar', [pizzeriaController::class, 'validar']);
+
+Route::get('/clientes/pedidos', [pizzeriaController::class, 'pedidos']);
+
+Route::get('/login/salir', [pizzeriaController::class, 'salir']);
+
+
+
 
 
 
